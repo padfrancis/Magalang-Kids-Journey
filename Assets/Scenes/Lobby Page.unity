@@ -727,15 +727,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Welcome to Magalang Kids
-
-    Journey!
+  m_Text: 'Welcome to GOOD KIDS!
 
 
 
-    A gamified educational game
-    that teaches kids good manners and right conduct through fun challenges, interactive
-    stories, and rewarding adventures!'
+    A gamified educational game that teaches
+    kids good manners and right conduct through fun challenges, interactive stories,
+    and rewarding adventures!'
 --- !u!222 &769522693
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -884,7 +882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10024945, y: 0.65000004}
   m_AnchorMax: {x: 0.8996788, y: 0.89166903}
-  m_AnchoredPosition: {x: 44.900024, y: 5.4770203}
+  m_AnchoredPosition: {x: 62.901, y: 5.4765}
   m_SizeDelta: {x: -125.80247, y: 14.68232}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1019613852
@@ -935,7 +933,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "MAGALANG \nKIDS JOURNEY"
+  m_Text: GOOD KIDS
 --- !u!222 &1019613854
 CanvasRenderer:
   m_ObjectHideFlags: 0

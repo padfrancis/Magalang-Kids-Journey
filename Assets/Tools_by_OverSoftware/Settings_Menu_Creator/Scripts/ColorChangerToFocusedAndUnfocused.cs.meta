@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: dc9ca5ba9b7eb914799bc1b0beccefd8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 184495
+  packageName: Ultra Fast Settings Menu Creator
+  packageVersion: 1.0
+  assetPath: Assets/Tools_by_OverSoftware/Settings_Menu_Creator/Scripts/ColorChangerToFocusedAndUnfocused.cs
+  uploadId: 406510

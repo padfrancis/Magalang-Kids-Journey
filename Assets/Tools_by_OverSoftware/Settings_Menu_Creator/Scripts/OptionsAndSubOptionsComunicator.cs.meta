@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 37adc2474301b2a41bc1a266d50c9fa1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 184495
+  packageName: Ultra Fast Settings Menu Creator
+  packageVersion: 1.0
+  assetPath: Assets/Tools_by_OverSoftware/Settings_Menu_Creator/Scripts/OptionsAndSubOptionsComunicator.cs
+  uploadId: 406510
