@@ -1232,7 +1232,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "MAGALANG \nKIDS JOURNEY"
+  m_Text: 'GOOD KIDS
+
+'
 --- !u!222 &1019613854
 CanvasRenderer:
   m_ObjectHideFlags: 0
