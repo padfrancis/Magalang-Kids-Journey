@@ -1,15 +1,32 @@
 using UnityEngine;
 using UnityEngine.UI;
-public class SliderController : MonoBehaviour 
+
+public class SliderValueUpdater : MonoBehaviour
 {
-    [SerializeField] private Text sliderText = null;
+    [SerializeField] private Slider[] sliders;
+    [SerializeField] private Text[] sliderTexts;
 
-    [SerializeField] private float maxSliderAmount = 100.0f;
-
-    public void SliderChange(float value)
+    void Start()
     {
-        float localValue = value * maxSliderAmount;
-        sliderText.text = localValue.ToString("0");
+        if (sliders.Length != sliderTexts.Length)
+        {
+            Debug.LogError("Sliders and SliderTexts arrays must have the same length.");
+            return;
+        }
+
+        for (int i = 0; i < sliders.Length; i++)
+        {
+            int index = i;
+            sliders[i].minValue = 0;
+            sliders[i].maxValue = 100;
+            sliders[i].value = 100;
+            sliders[i].onValueChanged.AddListener((value) => UpdateSliderText(index, value));
+            UpdateSliderText(i, sliders[i].value);
+        }
     }
 
+    void UpdateSliderText(int index, float value)
+    {
+        sliderTexts[index].text = Mathf.RoundToInt(value).ToString();
+    }
 }
