@@ -17,7 +17,7 @@ public class LevelMenu : MonoBehaviour
     }
     public void OpenLevel(int LevelId)
     {
-        string levelName = "Level" + LevelId;
+        string levelName = "Level " + LevelId;
         SceneManager.LoadScene(levelName);
     }
 }

@@ -16,7 +16,7 @@ PlayerSettings:
   productName: Good Kids
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.26112494, g: 0.33962262, b: 0.27275422, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 0.272
@@ -688,7 +688,7 @@ PlayerSettings:
   ps4IncludedModules: []
   ps4attribVROutputEnabled: 0
   monoEnv: 
-  splashScreenBackgroundSourceLandscape: {fileID: 5875038362160349911, guid: ebd0f3f5306846840b73ba3aca8dc67f, type: 3}
+  splashScreenBackgroundSourceLandscape: {fileID: 0}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   blurSplashScreenBackground: 1
   spritePackerPolicy: 
