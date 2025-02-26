@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class SoundManager : MonoBehaviour
     private SoundLibrary sfxLibrary;
     [SerializeField]
     private AudioSource sfx2DSource;
+    [SerializeField]
+    private AudioMixer audioMixer;
 
     private void Awake()
     {
@@ -24,7 +27,6 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        // Ensure the AudioSource is assigned
         if (sfx2DSource == null)
         {
             sfx2DSource = gameObject.AddComponent<AudioSource>();
@@ -43,7 +45,7 @@ public class SoundManager : MonoBehaviour
     {
         PlaySound(sfxLibrary.GetClipFromName(soundName), position);
     }
-
+    
     public void PlaySound2D(string soundName)
     {
         AudioClip clip = sfxLibrary.GetClipFromName(soundName);

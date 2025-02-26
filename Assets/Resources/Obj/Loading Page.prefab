@@ -104,8 +104,8 @@ Transform:
   m_GameObject: {fileID: 2606360778673657571}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1860385, y: -3.8825092, z: -0.050311435}
-  m_LocalScale: {x: 0.09215264, y: 0.09215264, z: 0.09215264}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1312690834248982114}
@@ -254,9 +254,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1525960516036584342}
-  - {fileID: 8717809951634182960}
   - {fileID: 6566347292279536337}
   - {fileID: 1309295680408058524}
+  - {fileID: 8717809951634182960}
   - {fileID: 2470864423075315635}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -399,6 +399,8 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 870f38ebd5d059b4ea1a3b4788047d5e, type: 2}
   musicSlider: {fileID: 0}
   sfxSlider: {fileID: 0}
+  masterSlider: {fileID: 0}
+  voiceOverSlider: {fileID: 0}
 --- !u!1 &4646507570686218446
 GameObject:
   m_ObjectHideFlags: 0

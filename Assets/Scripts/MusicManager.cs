@@ -1,84 +1,101 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
-    [SerializeField]
-    private MusicLibrary musicLibrary;
+
     [SerializeField]
     private AudioSource musicSource;
+
     [SerializeField]
-    private string[] gameplayScenes; // List of scenes where music should not play
+    private MusicLibrary musicLibrary;
+
+    [SerializeField]
+    private string lobbyMusicTrackName = "Lobby Music";
+
+    private bool shouldPlayLobbyMusic = false;
 
     private void Awake()
     {
         if (instance != null)
         {
             Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        if (musicSource != null)
+        {
+            musicSource.playOnAwake = false;
+        }
+    }
+
+    public void PlayMusic(string trackName)
+    {
+        AudioClip clip = musicLibrary.GetClipFromName(trackName);
+        if (clip != null)
+        {
+            musicSource.clip = clip;
+            musicSource.Play();
+            Debug.Log($"Playing music: {trackName}");
         }
         else
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
+            Debug.LogWarning($"Music track '{trackName}' not found!");
         }
     }
 
-    private void OnDestroy()
+    public void PauseMusic()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe from the sceneLoaded event
+        if (musicSource.isPlaying)
+        {
+            musicSource.Pause();
+            Debug.Log("Music paused.");
+        }
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void ResumeMusic()
     {
-        if (IsGameplayScene(scene.name))
+        if (!musicSource.isPlaying && musicSource.clip != null)
+        {
+            musicSource.UnPause();
+            Debug.Log("Music resumed.");
+        }
+    }
+
+    public void StopMusic()
+    {
+        if (musicSource.isPlaying)
         {
             musicSource.Stop();
-        }
-        else if (!musicSource.isPlaying)
-        {
-            musicSource.Play();
+            Debug.Log("Music stopped.");
         }
     }
 
-    private bool IsGameplayScene(string sceneName)
+    public void PlayLobbyMusic()
     {
-        foreach (string gameplayScene in gameplayScenes)
-        {
-            if (sceneName == gameplayScene)
-            {
-                return true;
-            }
-        }
-        return false;
+        Debug.Log("Stopping current music and playing lobby music.");
+        StopMusic();
+        PlayMusic(lobbyMusicTrackName);
     }
 
-    public void PlayMusic(string trackName, float fadeDuration = 0f)
+    public void SetShouldPlayLobbyMusic(bool value)
     {
-        StartCoroutine(AnimateMusicCrossfade(musicLibrary.GetClipFromName(trackName), fadeDuration));
+        shouldPlayLobbyMusic = value;
     }
 
-    IEnumerator AnimateMusicCrossfade(AudioClip nextTrack, float fadeDuration = 0f)
+    private void Update()
     {
-        float percent = 0;
-        while (percent < 1)
+        if (shouldPlayLobbyMusic)
         {
-            percent += Time.deltaTime * 1 / fadeDuration;
-            musicSource.volume = Mathf.Lerp(1f, 0, percent);
-            yield return null;
-        }
-
-        musicSource.clip = nextTrack;
-        musicSource.Play();
-
-        percent = 0;
-        while (percent < 1)
-        {
-            percent += Time.deltaTime * 1 / fadeDuration;
-            musicSource.volume = Mathf.Lerp(0, 1f, percent);
-            yield return null;
+            PlayLobbyMusic();
+            shouldPlayLobbyMusic = false;
         }
     }
 }
+
+
+
+
