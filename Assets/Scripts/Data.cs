@@ -1,25 +1,30 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
 
 public static class Data
 {
-    public static string CURRENT_LANGUAGE = "en";
-
-    public static Dictionary<string, Dictionary<string, string>> LOCALIZATION =
-        new Dictionary<string, Dictionary<string, string>>()
+    private static string[] _LANGUAGES;
+    public static string[] LANGUAGES
+    {
+        get
         {
-            { "play_key", new Dictionary<string, string>() { {"en", "PLAY"}, {"tl", "LARO"}, {"ilo", "AGAY-AYAM"} } },
-            { "settings_key", new Dictionary<string, string>() { {"en", "SETTINGS"}, {"tl", "MGA SETTING"}, {"ilo", "SETTINGS"} } },
-            { "back_key", new Dictionary<string, string>() { {"en", "BACK"}, {"tl", "LIKOD"}, {"ilo", "RUMWAR"} } },
-            { "lang_key", new Dictionary<string, string>() { {"en", "LANGUAGE"}, {"tl", "WIKA"}, {"ilo", "LENGGUAHE"} } },
-            { "audio_key", new Dictionary<string, string>() { {"en", "SOUND"}, {"tl", "TUNOG"}, {"ilo", "UNI"} } },
-            { "cred_key", new Dictionary<string, string>() { {"en", "CREDITS"}, {"tl", "MGA KREDITO"}, {"ilo", "DAGITI KREDITO"} } },
-            { "sub_key", new Dictionary<string, string>() { {"en", "SUBTITLES"}, {"tl", "SUBTITLE"}, {"ilo", "SUBTITULO"} } },
-            { "sizetxt_key", new Dictionary<string, string>() { {"en", "TEXT"}, {"tl", "TEKSTO"}, {"ilo", "TEKSTO"} } }
-        };
+            if (_LANGUAGES == null) _LoadLocalizationData();
+            return _LANGUAGES;
+        }
+    }
 
-    public static string[] LANGUAGES = new string[] { "en", "tl", "ilo" };
+    private static Dictionary<string, Dictionary<string, string>> _LOCALIZATION;
+    public static Dictionary<string, Dictionary<string, string>> LOCALIZATION
+    {
+        get
+        {
+            if (_LOCALIZATION == null) _LoadLocalizationData();
+            return _LOCALIZATION;
+        }
+    }
+    public static string CURRENT_LANGUAGE = "en";
 
     private static UnityEvent _OnLanguageChanged;
     public static UnityEvent OnLanguageChanged
@@ -32,20 +37,48 @@ public static class Data
         }
     }
 
-    public static void SetLanguage(string lang)
+    private static string _ReadFromFile(string path)
     {
-        if (lang == CURRENT_LANGUAGE || !LOCALIZATION.ContainsKey("play_key"))
-            return;
+        if (File.Exists(path))
+        {
+            using (StreamReader reader = new StreamReader(path))
+            {
+                return reader.ReadToEnd();
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"File not found: {path}");
+        }
+        return "{}";
+    }
+    public static void _LoadLocalizationData()
+    {
+        _LOCALIZATION = new Dictionary<string, Dictionary<string, string>>();
+        string json = _ReadFromFile(Path.Combine(
+            Application.dataPath, "Resources", "localization.json"));
 
-        CURRENT_LANGUAGE = lang;
-        PlayerPrefs.SetString("Language", lang);
-        PlayerPrefs.Save();
+        LocalizationLoader d = JsonUtility.FromJson<LocalizationLoader>(json);
+        _LANGUAGES = d.languages;
 
-        OnLanguageChanged.Invoke();
+        foreach (LocalizationMapping map in d.table)
+        {
+            _LOCALIZATION[map.key] = new Dictionary<string, string>();
+            foreach (LocalizationValue val in map.values)
+            {
+                _LOCALIZATION[map.key].Add(val.lang, val.value);
+            }
+        }
+    }
+    public static string GetLocalizedText(string key)
+    {
+        if (LOCALIZATION.ContainsKey(key) && LOCALIZATION[key].ContainsKey(CURRENT_LANGUAGE))
+        {
+            return LOCALIZATION[key][CURRENT_LANGUAGE];
+        }
+
+        Debug.LogWarning($"Missing translation for key: {key} in language: {CURRENT_LANGUAGE}");
+        return key;
     }
 
-    public static void LoadLanguage()
-    {
-        CURRENT_LANGUAGE = PlayerPrefs.GetString("Language", "en");
-    }
 }

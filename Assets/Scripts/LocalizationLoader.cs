@@ -1,12 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class LocalizationLoader : MonoBehaviour
+[System.Serializable]
+public class LocalizationValue
 {
-    public void Start()
-    {
-
-    }
+    public string lang;
+    public string value;
 }
-
+[System.Serializable]
+public class LocalizationMapping
+{
+    public string key;
+    public LocalizationValue[] values;
+}
+[System.Serializable]
+public class LocalizationLoader
+{
+    public string[] languages;
+    public LocalizationMapping[] table;
+}

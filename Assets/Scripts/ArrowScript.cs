@@ -3,18 +3,17 @@ using UnityEngine.UI;
 
 public class ArrowScript : MonoBehaviour
 {
-    public Text displayText; // The UI Text showing the selected language
-    public Button leftButton, rightButton; // Left and Right arrow buttons
-    public string[] textArray = { "English", "Filipino", "Ilocano" }; // Language options
+    public Text displayText;
+    public Button leftButton, rightButton;
+    public string[] textArray = { "English", "Filipino", "Ilocano" };
 
     private int currentIndex = 0;
 
     private void Start()
     {
-        // Load saved language (if exists)
-        string savedLanguage = PlayerPrefs.GetString("SavedLanguage", "en");
+        string savedLanguage = PlayerPrefs.GetString("SavedLanguage", Data.CURRENT_LANGUAGE);
         currentIndex = System.Array.IndexOf(Data.LANGUAGES, savedLanguage);
-        if (currentIndex == -1) currentIndex = 0; // Default to first language
+        if (currentIndex == -1) currentIndex = 0;
 
         UpdateText();
 
@@ -38,11 +37,9 @@ public class ArrowScript : MonoBehaviour
     {
         displayText.text = textArray[currentIndex];
 
-        // Set the current language in Data.cs
         Data.CURRENT_LANGUAGE = Data.LANGUAGES[currentIndex];
-        Data.OnLanguageChanged.Invoke(); // Notify all listeners
+        Data.OnLanguageChanged.Invoke();
 
-        // Save the selected language
         PlayerPrefs.SetString("SavedLanguage", Data.CURRENT_LANGUAGE);
         PlayerPrefs.Save();
     }

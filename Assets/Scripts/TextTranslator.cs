@@ -4,23 +4,18 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class TextTranslator : MonoBehaviour
 {
-    private Text _text;
-    private string _key;
+    Text _text;
+    string _key;
 
     private void Awake()
     {
+        Data.CURRENT_LANGUAGE = PlayerPrefs.GetString("SavedLanguage", Data.CURRENT_LANGUAGE);
         _text = GetComponent<Text>();
-        _key = _text.text.Trim();
+        _key = string.Copy(_text.text);
 
-        if (Data.LOCALIZATION.ContainsKey(_key))
-        {
-            _SetText();
-            Data.OnLanguageChanged.AddListener(_SetText);
-        }
-        else
-        {
-            Debug.LogWarning($"Localization key '{_key}' not found.");
-        }
+        _SetText();
+        Data.OnLanguageChanged.AddListener(_SetText);
+
     }
 
     private void _SetText()
@@ -29,10 +24,5 @@ public class TextTranslator : MonoBehaviour
         {
             _text.text = Data.LOCALIZATION[_key][Data.CURRENT_LANGUAGE];
         }
-    }
-
-    private void OnDestroy()
-    {
-        Data.OnLanguageChanged.RemoveListener(_SetText);
     }
 }

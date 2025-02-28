@@ -1,0 +1,464 @@
+{
+  "languages": [ "en", "tl", "ilo" ],
+  "table": [
+    {
+      "key": "play_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "PLAY"
+        },
+        {
+          "lang": "tl",
+          "value": "LARO"
+        },
+        {
+          "lang": "ilo",
+          "value": "AGAY-AYAM"
+        }
+      ]
+    },
+    {
+      "key": "settings_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "SETTINGS"
+        },
+        {
+          "lang": "tl",
+          "value": "MGA SETTING"
+        },
+        {
+          "lang": "ilo",
+          "value": "SETTINGS"
+        }
+      ]
+    },
+    {
+      "key": "store_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "STORE"
+        },
+        {
+          "lang": "tl",
+          "value": "TINDAHAN"
+        },
+        {
+          "lang": "ilo",
+          "value": "TIENDAAN"
+        }
+      ]
+    },
+    {
+      "key": "settings_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "SETTTINGS"
+        },
+        {
+          "lang": "tl",
+          "value": "SETTINGS"
+        },
+        {
+          "lang": "ilo",
+          "value": "SETTINGS"
+        }
+      ]
+    },
+    {
+      "key": "quit_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "QUIT"
+        },
+        {
+          "lang": "tl",
+          "value": "IHINTO"
+        },
+        {
+          "lang": "ilo",
+          "value": "ISARDENG"
+        }
+      ]
+    },
+    {
+      "key": "welcome_msg",
+      "values": [
+        {
+          "lang": "en",
+          "value": "Welcome to GOOD KIDS!\n\nA gamified educational game that teaches kids good manners and right conduct through fun challenges, interactive stories, and rewarding adventures!"
+        },
+        {
+          "lang": "tl",
+          "value": "Maligayang pagdating sa GOOD KIDS!\n\nIsang larong pang-edukasyon na nagtuturo sa mga bata ng mabuting asal at tamang pag-uugali sa pamamagitan ng masasayang hamon, interaktibong kwento, at kapanapanabik na pakikipagsapalaran!"
+        },
+        {
+          "lang": "ilo",
+          "value": "Naimbag nga umay kayo iti GOOD KIDS!\n\nMaysa a napag-ay-ayam nga edukasyonal a mangitultulong kadagiti ubbing iti nasayaat a kinaugali babaen ti ragsak a challenges, interaktibo a istoria, ken napateg a panagmula!"
+        }
+      ]
+    },
+    {
+      "key": "back_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "BACK"
+        },
+        {
+          "lang": "tl",
+          "value": "BALIK"
+        },
+        {
+          "lang": "ilo",
+          "value": "AGSUBLI"
+        }
+      ]
+    },
+    {
+      "key": "lang_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "LANGUAGE"
+        },
+        {
+          "lang": "tl",
+          "value": "WIKA"
+        },
+        {
+          "lang": "ilo",
+          "value": "LENGGUAHE"
+        }
+      ]
+    },
+    {
+      "key": "audio_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "SOUND"
+        },
+        {
+          "lang": "tl",
+          "value": "TUNOG"
+        },
+        {
+          "lang": "ilo",
+          "value": "UNI"
+        }
+      ]
+    },
+    {
+      "key": "cred_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "CREDITS"
+        },
+        {
+          "lang": "tl",
+          "value": "MGA KREDITO"
+        },
+        {
+          "lang": "ilo",
+          "value": "DAGITI KREDITO"
+        }
+      ]
+    },
+    {
+      "key": "sub_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "SUBTITLES"
+        },
+        {
+          "lang": "tl",
+          "value": "SUBTITLE"
+        },
+        {
+          "lang": "ilo",
+          "value": "SUBTITULO"
+        }
+      ]
+    },
+    {
+      "key": "speed_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "TEXT SPEED"
+        },
+        {
+          "lang": "tl",
+          "value": "BILIS NG TEKSTO"
+        },
+        {
+          "lang": "ilo",
+          "value": "KAPARTAK TI TEKSTO"
+        }
+      ]
+    },
+    {
+      "key": "dial_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "ENGLISH"
+        },
+        {
+          "lang": "tl",
+          "value": "TAGALOG"
+        },
+        {
+          "lang": "ilo",
+          "value": "ILOCANO"
+        }
+      ]
+    },
+    {
+      "key": "enable_text",
+      "values": [
+        {
+          "lang": "en",
+          "value": "ON"
+        },
+        {
+          "lang": "tl",
+          "value": "NAKA-ON"
+        },
+        {
+          "lang": "ilo",
+          "value": "LUKATAN"
+        }
+      ]
+    },
+    {
+      "key": "disable_text",
+      "values": [
+        {
+          "lang": "en",
+          "value": "OFF"
+        },
+        {
+          "lang": "tl",
+          "value": "NAKA-OFF"
+        },
+        {
+          "lang": "ilo",
+          "value": "IDDEPEN"
+        }
+      ]
+    },
+    {
+      "key": "slow_text",
+      "values": [
+        {
+          "lang": "en",
+          "value": "SLOW"
+        },
+        {
+          "lang": "tl",
+          "value": "MABAGAL"
+        },
+        {
+          "lang": "ilo",
+          "value": "NABUNTTOG"
+        }
+      ]
+    },
+    {
+      "key": "normal_text",
+      "values": [
+        {
+          "lang": "en",
+          "value": "NORMAL"
+        },
+        {
+          "lang": "tl",
+          "value": "KARANIWAN"
+        },
+        {
+          "lang": "ilo",
+          "value": "AGTULTULYAG"
+        }
+      ]
+    },
+    {
+      "key": "fast_text",
+      "values": [
+        {
+          "lang": "en",
+          "value": "FAST"
+        },
+        {
+          "lang": "tl",
+          "value": "MABILIS"
+        },
+        {
+          "lang": "ilo",
+          "value": "NAPARTAK"
+        }
+      ]
+    },
+    {
+      "key": "cred_details",
+      "values": [
+        {
+          "lang": "en",
+          "value": "GOOD KIDS : A Gamified Educational Game\nDeveloped By:"
+        },
+        {
+          "lang": "tl",
+          "value": "GOOD KIDS : Isang Laro na May Gamit na Edukasyon\nGinawa Nila:"
+        },
+        {
+          "lang": "ilo",
+          "value": "GOOD KIDS : Maysa a Ayayam nga Adda Usar na iti Panag-Adal\n Inubra Da:"
+        }
+      ]
+    },
+    {
+      "key": "master_vol",
+      "values": [
+        {
+          "lang": "en",
+          "value": "MASTER VOLUME"
+        },
+        {
+          "lang": "tl",
+          "value": "LAKAS NG TUNOG"
+        },
+        {
+          "lang": "ilo",
+          "value": "PANGUNNA NGA TUNOG"
+        }
+      ]
+    },
+    {
+      "key": "sfx_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "SOUND EFFECTS"
+        },
+        {
+          "lang": "tl",
+          "value": "LAKAS NG EPEKTO"
+        },
+        {
+          "lang": "ilo",
+          "value": "PIGSA TI EPEKTO"
+        }
+      ]
+    },
+    {
+      "key": "vo_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "VOICE OVER"
+        },
+        {
+          "lang": "tl",
+          "value": "LAKAS NG SALITA"
+        },
+        {
+          "lang": "ilo",
+          "value": "PIGSA TI SAO"
+        }
+      ]
+    },
+    {
+      "key": "music_vol",
+      "values": [
+        {
+          "lang": "en",
+          "value": "MUSIC VOLUME"
+        },
+        {
+          "lang": "tl",
+          "value": "LAKAS NG MUSIKA"
+        },
+        {
+          "lang": "ilo",
+          "value": "PIGSA TI MUSIKA"
+        }
+      ]
+    },
+    {
+      "key": "cred_info",
+      "values": [
+        {
+          "lang": "en",
+          "value": "PROGRAMMING        Francis Padron\n                   Jethro Taal\n\nGAME DESIGN        Francis Padron\n                   Jethro Taal\n\nART & ANIMATION    Francis Padron\n                   Bernadeth Velasco\n                   Jecko Unciano\n                   Jethro Taal\n\nQA TESTING         Francis Padron\n                   Jecko Unciano\n\nVOICE OVER         Bernadeth Velasco\n                   Jecko Unciano"
+        },
+        {
+          "lang": "tl",
+          "value": "PROGRAMMING            Francis Padron\n                       Jethro Taal\n\nDISENYO NG LARO        Francis Padron\n                       Jethro Taal\n\nSINING AT ANIMASYON    Francis Padron\n                       Bernadeth Velasco\n                       Jecko Unciano\n                       Jethro Taal\n\nPagsusuri (QA)         Francis Padron\n                       Jecko Unciano\n\nTAGAPAGSALITA          Bernadeth Velasco\n                       Jecko Unciano"
+        },
+        {
+          "lang": "ilo",
+          "value": "PROGRAMMING            Francis Padron\n                       Jethro Taal\n\nDISEÑO TI AYAYAM       Francis Padron\n                       Jethro Taal\n\nARTE KEN ANIMASYON     Francis Padron\n                       Bernadeth Velasco\n                       Jecko Unciano\n                       Jethro Taal\n\nPanagsubok (QA)        Francis Padron\n                       Jecko Unciano\n\nTAGASAO                Bernadeth Velasco\n                       Jecko Unciano"
+        }
+      ]
+    },
+    {
+      "key": "easy_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "EASY"
+        },
+        {
+          "lang": "tl",
+          "value": "MADALI"
+        },
+        {
+          "lang": "ilo",
+          "value": "NADARAS"
+        }
+      ]
+    },
+    {
+      "key": "med_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "MEDIUM"
+        },
+        {
+          "lang": "tl",
+          "value": "KATAMTAMAN"
+        },
+        {
+          "lang": "ilo",
+          "value": "KALANAINGAN"
+        }
+      ]
+    },
+    {
+      "key": "hard_key",
+      "values": [
+        {
+          "lang": "en",
+          "value": "HARD"
+        },
+        {
+          "lang": "tl",
+          "value": "MAHIRAP"
+        },
+        {
+          "lang": "ilo",
+          "value": "NARIGAT"
+        }
+      ]
+    }
+  ]
+}
