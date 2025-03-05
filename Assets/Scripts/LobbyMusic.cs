@@ -8,7 +8,10 @@ public class LobbyMusic : MonoBehaviour
     {
         if (MusicManager.instance != null)
         {
-            MusicManager.instance.PlayMusic(musicName);
+            if (!MusicManager.instance.IsMusicPlaying(musicName))
+            {
+                MusicManager.instance.PlayMusic(musicName);
+            }
         }
         else
         {
@@ -20,7 +23,10 @@ public class LobbyMusic : MonoBehaviour
     {
         if (MusicManager.instance != null)
         {
-            MusicManager.instance.PlayMusic(musicName);
+            if (!MusicManager.instance.IsMusicPlaying(musicName))
+            {
+                MusicManager.instance.PlayMusic(musicName);
+            }
         }
         else
         {

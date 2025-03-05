@@ -13,8 +13,9 @@ public class MusicManager : MonoBehaviour
     [SerializeField]
     private string lobbyMusicTrackName = "Lobby Music";
 
-    private bool shouldPlayLobbyMusic = false;
+    private string currentMusicName;
 
+    private bool shouldPlayLobbyMusic;
     private void Awake()
     {
         if (instance != null)
@@ -34,16 +35,20 @@ public class MusicManager : MonoBehaviour
 
     public void PlayMusic(string trackName)
     {
-        AudioClip clip = musicLibrary.GetClipFromName(trackName);
-        if (clip != null)
+        if (currentMusicName != trackName)
         {
-            musicSource.clip = clip;
-            musicSource.Play();
-            Debug.Log($"Playing music: {trackName}");
-        }
-        else
-        {
-            Debug.LogWarning($"Music track '{trackName}' not found!");
+            AudioClip clip = musicLibrary.GetClipFromName(trackName);
+            if (clip != null)
+            {
+                musicSource.clip = clip;
+                musicSource.Play();
+                currentMusicName = trackName;
+                Debug.Log($"Playing music: {trackName}");
+            }
+            else
+            {
+                Debug.LogWarning($"Music track '{trackName}' not found!");
+            }
         }
     }
 
@@ -70,6 +75,7 @@ public class MusicManager : MonoBehaviour
         if (musicSource.isPlaying)
         {
             musicSource.Stop();
+            currentMusicName = null;
             Debug.Log("Music stopped.");
         }
     }
@@ -94,8 +100,9 @@ public class MusicManager : MonoBehaviour
             shouldPlayLobbyMusic = false;
         }
     }
+
+    public bool IsMusicPlaying(string trackName)
+    {
+        return currentMusicName == trackName;
+    }
 }
-
-
-
-

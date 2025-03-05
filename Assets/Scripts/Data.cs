@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
+using UnityEngine.Networking;
 
 public static class Data
 {
@@ -39,24 +41,42 @@ public static class Data
 
     private static string _ReadFromFile(string path)
     {
+        Debug.Log("Loading JSON from: " + Application.streamingAssetsPath);
+#if UNITY_ANDROID && !UNITY_EDITOR
+        if (path.Contains("://") || path.Contains(":///"))
+        {
+            UnityWebRequest request = UnityWebRequest.Get(path);
+            request.SendWebRequest();
+            while (!request.isDone) { }
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                return request.downloadHandler.text;
+            }
+            else
+            {
+                Debug.LogWarning($"Failed to load file: {path}, Error: {request.error}");
+                return "{}";
+            }
+        }
+#endif
+
         if (File.Exists(path))
         {
-            using (StreamReader reader = new StreamReader(path))
-            {
-                return reader.ReadToEnd();
-            }
+            return File.ReadAllText(path);
         }
         else
         {
             Debug.LogWarning($"File not found: {path}");
+            return "{}";
         }
-        return "{}";
     }
     public static void _LoadLocalizationData()
     {
         _LOCALIZATION = new Dictionary<string, Dictionary<string, string>>();
-        string json = _ReadFromFile(Path.Combine(
-            Application.dataPath, "Resources", "localization.json"));
+        string path = Path.Combine(Application.streamingAssetsPath, "localization.json");
+
+        string json = _ReadFromFile(path);
 
         LocalizationLoader d = JsonUtility.FromJson<LocalizationLoader>(json);
         _LANGUAGES = d.languages;
